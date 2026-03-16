@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import logging
 import time
 from dataclasses import dataclass, field
@@ -66,8 +68,7 @@ class WorkStealingStrategy:
         ]
 
     def evaluate_signals(self, signals: list[Signal], current_prices: dict[str, float]) -> list[dict]:
-        tradable = self.filter_tradable(signals)
-        tradable.sort(key=lambda s: s.pnl_7d_pct, reverse=True)
+        tradable = sorted(signals, key=lambda s: s.pnl_7d_pct, reverse=True)
         actions = []
         now = time.time()
 

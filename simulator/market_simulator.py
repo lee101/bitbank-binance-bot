@@ -1,11 +1,6 @@
-"""Market simulator with hourly granularity and realistic execution modeling.
+"""Market simulator with hourly granularity and realistic execution modeling."""
+from __future__ import annotations
 
-Simulates the work-stealing strategy over historical data with:
-- 5bp/15bp bar margin buffers for execution realism
-- Fee modeling (configurable per side)
-- Intraday bounce detection (multiple executions per day)
-- Hourly simulation even for daily trading signals
-"""
 import logging
 from dataclasses import dataclass, field
 

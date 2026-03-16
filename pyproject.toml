@@ -10,6 +10,8 @@ dependencies = [
     "python-binance>=1.0.19",
     "pandas>=2.0",
     "python-dotenv>=1.0",
+    "scipy>=1.11",
+    "numpy>=1.26",
 ]
 
 [project.optional-dependencies]

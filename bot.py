@@ -1,4 +1,6 @@
 """Main bot loop - fetches signals from bitbank, executes on Binance."""
+from __future__ import annotations
+
 import asyncio
 import json
 import logging
@@ -25,7 +27,7 @@ TRADE_LOG = STATE_DIR / "trades.jsonl"
 
 
 def save_state(strategy: WorkStealingStrategy):
-    STATE_DIR.mkdir(exist_ok=True)
+    STATE_DIR.mkdir(parents=True, exist_ok=True)
     state = {
         "positions": strategy.positions,
         "entry_prices": strategy.entry_prices,
@@ -141,8 +143,8 @@ async def run_loop(config: Config):
 
 def main():
     config = Config()
-    if not config.bitbank_api_key and not config.bitbank_base_url:
-        log.error("set BITBANK_BASE_URL in .env")
+    if not config.binance_api_key and not config.dry_run:
+        log.error("BINANCE_API_KEY required when DRY_RUN=false")
         sys.exit(1)
     asyncio.run(run_loop(config))
 

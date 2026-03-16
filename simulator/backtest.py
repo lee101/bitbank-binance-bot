@@ -2,6 +2,8 @@
 
 Supports 7d, 30d, 60d periods with hourly granularity and multiple bar margins.
 """
+from __future__ import annotations
+
 import logging
 from dataclasses import dataclass, field
 

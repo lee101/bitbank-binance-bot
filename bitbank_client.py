@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import logging
 from dataclasses import dataclass
 from typing import Optional
@@ -45,7 +47,8 @@ class BitbankClient:
         resp.raise_for_status()
         data = resp.json()
         signals = []
-        for item in data.get("signals", data if isinstance(data, list) else []):
+        items = data if isinstance(data, list) else data.get("signals", [])
+        for item in items:
             try:
                 sig = Signal(
                     pair=item["currency_pair"],
