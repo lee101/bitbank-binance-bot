@@ -197,6 +197,14 @@ The market simulator accounts for:
 - **Intraday bounces**: Hourly simulation detects when price passes through both buy and sell levels within the same bar, correctly modeling multiple executions per day
 - **Forced closes**: Open positions are marked to market at period end
 
+## Bitbank API SDKs
+
+Official SDK wrappers for the bitbank.nz API:
+
+- [bitbank-sdk-python](https://github.com/lee101/bitbank-sdk-python) - Python (async + sync)
+- [bitbank-sdk-typescript](https://github.com/lee101/bitbank-sdk-typescript) - TypeScript/JavaScript
+- [bitbank-sdk-go](https://github.com/lee101/bitbank-sdk-go) - Go
+
 ## License
 
 MIT
